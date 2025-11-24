@@ -1,0 +1,22 @@
+
+.nav-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    padding: 10px;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.nav-container a {
+    color: white;
+    margin-right: 10px;
+}
+
+
+.nav-container a.active {
+    font-weight: bold;
+    color: rgb(255, 251, 24);
+}

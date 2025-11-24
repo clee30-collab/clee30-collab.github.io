@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="navstyle.css">
     <meta charset="UTF-8">
     <title>pattern 2</title>
     <style>
@@ -11,7 +12,7 @@
             font-size: 8px;
             display: flex;
             justify-content: center;
-            
+            padding-top: 60px;
             height: 100vh;
             margin: 0;
         }
@@ -33,7 +34,11 @@
     </style>
 </head>
 <body>
-
+    <div class="nav-container">
+        <a href="index1.html" >Pattern 1</a>
+        <a href="index2.html" class="active">Pattern 2</a>
+        <a href="index3.html">Pattern 3</a>
+    </div>
 <div class="container" id="container"></div>
 <script>
     let container = document.getElementById("container");

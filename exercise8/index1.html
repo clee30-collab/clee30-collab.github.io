@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="navstyle.css">
     <meta charset="UTF-8">
     <title>pattern 1</title>
     <style>
@@ -10,6 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            
         }
         .row {
             display: flex;          
@@ -23,6 +25,12 @@
     </style>
 </head>
 <body>
+    <div class="nav-container">
+        <a href="index1.html" class="active">Pattern 1</a>
+        <a href="index2.html">Pattern 2</a>
+        <a href="index3.html">Pattern 3</a>
+    </div>
+    
 <div id="patternContainer"></div>
 <script>
     let container = document.getElementById("patternContainer");
@@ -46,7 +54,7 @@
                     rect.style.backgroundColor = "red";
                 } else {
                     rect.style.height = "10px"; 
-                    rect.style.backgroundColor = "green";
+                    rect.style.backgroundColor = "yellow";
                 }
             } else {
                 rect.style.height = "50px";           

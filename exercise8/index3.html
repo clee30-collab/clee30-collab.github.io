@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="navstyle.css">
     <meta charset="UTF-8">
     <title>Pattern 3</title>
     <style>
@@ -9,6 +10,7 @@
             font-size: 20px;
             font-family: monospace;
             text-align: center; 
+            padding-top: 50px;
 
         }
         .red { color: rgb(255, 255, 255); }
@@ -16,6 +18,11 @@
     </style>
 </head>
 <body>
+    <div class="nav-container">
+        <a href="index1.html" >Pattern 1</a>
+        <a href="index2.html" >Pattern 2</a>
+        <a href="index3.html" class="active">Pattern 3</a>
+    </div>
 <script>
     for (let row = 1; row <= 40; row++) {
         for (let col = 1; col <= 40; col++) {
