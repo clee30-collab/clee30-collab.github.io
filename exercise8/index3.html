@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pattern 3</title>
+    <style>
+        body {
+            background:black;
+            font-size: 20px;
+            font-family: monospace;
+            text-align: center; 
+
+        }
+        .red { color: rgb(255, 255, 255); }
+        .blue { color: rgb(254, 255, 236); }
+    </style>
+</head>
+<body>
+<script>
+    for (let row = 1; row <= 40; row++) {
+        for (let col = 1; col <= 40; col++) {
+            let char;
+            if ((row + col) % 2 === 0) {
+                char = "<span class='red'>x</span>";
+            } else {
+                char = "<span class='blue'>+</span>";
+            }
+
+            document.write(char);
+
+            let randomSpaces = Math.floor(Math.random() * 4) + 1;
+
+
+            for (let s = 0; s < randomSpaces; s++) {
+                document.write("&nbsp;");
+            }
+        }
+
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>pattern 2</title>
+    <style>
+        body {
+            background: white;
+            color: black;
+            font-family: monospace;
+            font-size: 8px;
+            display: flex;
+            justify-content: center;
+            
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(30, 30px); 
+            grid-template-rows: repeat(30, 30px);   
+            gap: 20px; 
+        }
+        .grid {
+            width: 30px;  
+            height: 30px; 
+            text-align: center;
+            vertical-align: middle;
+            overflow: hidden;
+      
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="container"></div>
+<script>
+    let container = document.getElementById("container");
+
+    let gridRows = 30; 
+    let gridCols = 30; 
+
+    for (let gRow = 0; gRow < gridRows; gRow++) {
+        for (let gCol = 0; gCol < gridCols; gCol++) {
+
+            let div = document.createElement("div");
+            div.className = "grid";
+
+            let patternLength = 2;
+            let myshape = "";
+
+            for (let i = 0; i < patternLength; i++) {
+                for (let j = 0; j <= i; j++) {
+       
+                    let randNum = Math.floor(Math.random() * 100);
+
+       
+                if (randNum % 2 === 0) {
+                    myshape += "(";
+                 } else {
+                    myshape += ")";
+                }
+    }
+                myshape += "<br>";
+            }
+            div.innerHTML = myshape;
+            container.appendChild(div);
+        }
+    }
+</script>
+
+</body>
+</html>

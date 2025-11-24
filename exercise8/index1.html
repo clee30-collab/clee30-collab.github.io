@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>pattern 1</title>
+    <style>
+        body {
+            background: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .row {
+            display: flex;          
+    flex-wrap: nowrap; 
+        }
+        .rect {
+            width: 50px;
+            display: inline-block;
+
+        }
+    </style>
+</head>
+<body>
+<div id="patternContainer"></div>
+<script>
+    let container = document.getElementById("patternContainer");
+    let totalRows = 30; 
+    let rowCount = 0;
+
+    while (rowCount < totalRows) {
+        let rowDiv = document.createElement("div");
+        rowDiv.className = "row";
+
+        for (let col = 1; col <= 30; col++) {
+            let rect = document.createElement("div");
+            rect.className = "rect";
+
+
+
+
+            if (col % 2 === 0) {
+                if (col % 4 === 0) {
+                    rect.style.height = "30px"; 
+                    rect.style.backgroundColor = "red";
+                } else {
+                    rect.style.height = "10px"; 
+                    rect.style.backgroundColor = "green";
+                }
+            } else {
+                rect.style.height = "50px";           
+                rect.style.backgroundColor = "transparent"; 
+                rect.style.border = "10px solid blue"; 
+            }
+            rowDiv.appendChild(rect);
+        }
+        container.appendChild(rowDiv);
+        rowCount++; 
+    }
+</script>
+
+</body>
+</html>
