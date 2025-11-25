@@ -7,20 +7,43 @@
     <meta content="a repository for sample code" name="description">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="../demo-accordion/style.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <!-- Your own javascript file -->
-    <script src="script.js"></script>
+    <link href="../coffeeMenu/coffeeStyle.css" rel="stylesheet">
+
+    <script src="../coffeeMenu/coffeeScript.js"></script>
+  
    
     <body>
+
         <div class="sunSetColor"></div>
         <div class="sunCircle"></div>
         
         <div class="noiseOverlay"></div>
 
+
+            <div class="menuInfo left">
+              cafe open 7am-4pm<br>
+              bar open 5pm-11pm
+          </div>
+      
+
+          <div class="menuInfo right">
+              11573 Santa Monica Blvd,<br> 
+              Los Angeles, CA 90025
+          </div>
+
         <div class="menuContainer">
-            <div class="dayMenuFront"></div>
-            <div class="dayMenuBack"></div>
+          <div class="dayMenuFront"></div>
+          <div class="dayMenuBack">
+            <div id="timerTilBar">Loading...</div>
+            <div id="countdownWords">countdown until bar opens!</div>
+        
         </div>
+        
+        
+      </div>
+      
+
+       
         
           <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
     <filter id="noiseFilter">
