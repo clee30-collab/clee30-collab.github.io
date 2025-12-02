@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: black;
+    background: rgb(255, 255, 255);
     font-family: "Courier New", Courier, monospace;
     display: flex;
     justify-content: center;
@@ -11,25 +11,26 @@ body {
   
 
   .container {
-    background: #fff8c6; 
+    
     padding: 40px 60px;
-    max-width: 500px;
+    height: 80%;
     width: 80%;
     text-align: center;
-    border-radius: 10px;
+    
   }
   
   
-  .container h1 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    font-weight: bold;
+  .container div{
+    font-size: 1rem;
+    margin-bottom: 150px;
+    
   }
   
   .container .links {
     display: flex;
+    
     flex-direction: column;
-    gap: 15px;
+    gap: 30px;
   }
   
   
@@ -37,11 +38,11 @@ body {
     color: black;
     font-size: 1rem;
     text-decoration: none;
-    font-weight: bold;
+    
     transition: opacity 0.2s ease;
   }
   
   .container a:hover {
-    opacity: 0.6;
+    color: red;
   }
   
