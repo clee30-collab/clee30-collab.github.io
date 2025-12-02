@@ -1,39 +1,51 @@
 document.addEventListener("DOMContentLoaded", () => {
 
- 
-    function updateCountdown() {
+    function updateStatus() {
         const now = new Date();
         const nowEST = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
 
-        const year = nowEST.getFullYear();
-        const month = nowEST.getMonth();
-        const day = nowEST.getDate();
+        const hours = nowEST.getHours();
 
-        const start = new Date(year, month, day, 7, 0, 0);
-        const end = new Date(year, month, day, 17, 0, 0);
+        let statusText = "";
 
-        const total = end - start;
-        let remaining = end - nowEST;
+        if (hours >= 7 && hours < 16) {
+            statusText = "CAFE IS OPEN";
+        } 
+        else if (hours >= 16 && hours < 17) {
+            statusText = "BAR OPENING SOON";
+        } 
+        else if (hours >= 17 && hours < 23) {
+            statusText = "BAR IS OPEN";
+        } 
+        else {
+            statusText = "CAFE OPENING SOON";
+        }
 
-        if (nowEST < start) remaining = end - start;
-        if (nowEST > end) remaining = new Date(year, month, day + 1, 7, 0, 0) - nowEST;
+        document.getElementById("countdownWords").textContent = statusText;
+    }
 
-        const hours = Math.floor(remaining / (1000 * 60 * 60));
-        const minutes = Math.floor((remaining / (1000 * 60)) % 60);
-        const seconds = Math.floor((remaining / 1000) % 60);
+    function updateClock() {
+        const now = new Date();
+        const nowEST = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
 
         const pad = n => String(n).padStart(2, "0");
 
-        document.getElementById("timerTilBar").textContent =
-            `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        const hrs = pad(nowEST.getHours());
+        const mins = pad(nowEST.getMinutes());
+        const secs = pad(nowEST.getSeconds());
+
+        document.getElementById("liveClock").textContent = `${hrs}:${mins}:${secs} EST`;
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+
+    updateStatus();
+    updateClock();
+
+    setInterval(updateStatus, 30000); 
+    setInterval(updateClock, 1000);   
 
     const menuBack = document.querySelector(".dayMenuBack");
     menuBack.style.cursor = "pointer"; 
-
     menuBack.addEventListener("click", () => {
         window.location.href = "../barMenu/barIndex.html";
     });

@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    font-family: "Courier New", Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+
+  .container {
+    background: #fff8c6; 
+    padding: 40px 60px;
+    max-width: 500px;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  
+  .container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  
+  .container .links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  
+  .container a {
+    color: black;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.2s ease;
+  }
+  
+  .container a:hover {
+    opacity: 0.6;
+  }
+  

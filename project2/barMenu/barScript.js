@@ -1,42 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    function updateCountdown() {
+    function updateStatus() {
         const now = new Date();
         const nowEST = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
 
-        const year = nowEST.getFullYear();
-        const month = nowEST.getMonth();
-        const day = nowEST.getDate();
+        const hours = nowEST.getHours();
 
-        const closeTime = new Date(year, month, day, 17, 0, 0);  
-        const openTimeNext = new Date(year, month, day + 1, 7, 0, 0); 
+        let statusText = "";
 
-        let remaining;
-
-      
-        if (nowEST < closeTime) {
-            remaining = 0;
-        }
-       
+        if (hours >= 7 && hours < 16) {
+            statusText = "CAFE IS OPEN";
+        } 
+        else if (hours >= 16 && hours < 17) {
+            statusText = "BAR OPENING SOON";
+        } 
+        else if (hours >= 17 && hours < 23) {
+            statusText = "BAR IS OPEN";
+        } 
         else {
-            remaining = openTimeNext - nowEST;
+            statusText = "CAFE OPENING SOON";
         }
 
-        const hours = Math.floor(remaining / (1000 * 60 * 60));
-        const minutes = Math.floor((remaining / (1000 * 60)) % 60);
-        const seconds = Math.floor((remaining / 1000) % 60);
+        document.getElementById("countdownWords").textContent = statusText;
+    }
+
+
+    function updateClock() {
+        const now = new Date();
+        const nowEST = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
 
         const pad = n => String(n).padStart(2, "0");
 
-        document.getElementById("timerTilCoffee").textContent =
-            `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        const hrs = pad(nowEST.getHours());
+        const mins = pad(nowEST.getMinutes());
+        const secs = pad(nowEST.getSeconds());
+
+        document.getElementById("liveClock").textContent = `${hrs}:${mins}:${secs} EST`;
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+
+    updateStatus();
+    updateClock();
+
+    setInterval(updateStatus, 30000); 
+    setInterval(updateClock, 1000);   
+
     const menuBack = document.querySelector(".dayMenuBack");
     menuBack.style.cursor = "pointer"; 
-
     menuBack.addEventListener("click", () => {
         window.location.href = "../coffeeMenu/coffeeIndex.html";
     });

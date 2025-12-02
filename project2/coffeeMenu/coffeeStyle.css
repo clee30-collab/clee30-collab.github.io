@@ -54,7 +54,10 @@
 .menuInfo {
   position: absolute;    
   color: white;
-  font-size: 0.8rem;  
+  font-family: "Cantarell", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 0.65rem;  
   line-height: 1.2;
   pointer-events: none;  
   z-index: 10;
@@ -83,25 +86,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
+    gap: 25px;
     z-index: 5;
   }
-  
+  .menuInfo.liveClock {
+    top: 50px;
+    left: 10px;
+    
+    font-size: 0.7rem;
+    text-align: left;
+}
+
   
  
   .dayMenuFront{
-  width: 450px;
-  height: 700px;
-  transform-origin: center;
-  transition: transform 0.4s ease;
-  background: white;
+    width: 580px;
+    height: 700px;
+    background-image: url("../images/cafe2.jpg");
+    background-size: cover;       
+    background-position: center;   
+    background-repeat: no-repeat;  
+    transform-origin: center;
+    transition: transform 0.4s ease;
 }
 .dayMenuBack {
-  width: 450px;
+  width: 580px;
   height: 700px;
-  background: #CBEE1C;
-  position: relative; 
-  transition: transform 0.4s ease, background-color 0.4s ease; 
+  background-image: url("../images/back2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: transform 0.4s ease;
 }
 
 
@@ -110,26 +126,18 @@
 
   
 
-#timerTilBar {
-  position: absolute;
-  top: 40%;         
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
-  color: black;
-  pointer-events: none;
-  z-index: 10;
-}
+
 
 #countdownWords {
   position: absolute;
-  top: 58%;        
+  top: 50%;        
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2rem;
-  font-weight: bold;
+  
+  font-family: "Cantarell", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 1rem;  
   text-align: center;
   color: black;
   pointer-events: none;
@@ -151,7 +159,7 @@
    
     scale(1.05);
     z-index: 6;
-    background-color: #eebd1c;
+    box-shadow: 0 0 10px 3px #efff86;
 }
 
   

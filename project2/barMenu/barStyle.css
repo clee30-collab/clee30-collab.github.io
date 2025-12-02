@@ -4,7 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #001933;  
+    background: #1e47ef;  
     overflow: hidden;
     position: relative;
   }
@@ -23,7 +23,7 @@ body {
   .moonRiseColor {
     width: 100vw;
     height: 800px;
-    background: linear-gradient(#001933, #003366, #335599, #7799cc, #ffffff);
+    background: linear-gradient(#232323, #4086cb, #4f81c6, #46508d, #d79dd7);
     filter: blur(90px);
     position: absolute;
     bottom: 0;
@@ -34,10 +34,10 @@ body {
   .moonCircle {
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, #ffffff, #cce0ff 90%);
+    background: radial-gradient(circle, #bccde8, #cce0ff 90%);
     filter: blur(20px);
     border-radius: 50%;
-    box-shadow: 0 0 40px #cce0ff;
+    box-shadow: 0 0 40px #71aaff;
     position: absolute;
     bottom: -200%;
     transform-origin: bottom;
@@ -46,7 +46,10 @@ body {
   .menuInfo {
     position: absolute;    
     color: white;
-    font-size: 0.8rem;  
+    font-family: "Cantarell", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 0.65rem;  
     line-height: 1.2;
     pointer-events: none;  
     z-index: 10;
@@ -74,27 +77,40 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
+    gap: 25px;
     z-index: 5;
 }
 
-
+.menuInfo.liveClock {
+  top: 50px;
+  left: 10px;
   
-  .dayMenuFront {
-    width: 450px;
-    height: 700px;
-    background: white;
-    transform-origin: center;
-    transition: transform 0.4s ease;
-  }
-  
-  .dayMenuBack {
-    width: 450px;
-    height: 700px;
-    background-color: #CBEE1C;
-    position: relative;
-    transition: transform 0.4s ease, background-color 0.4s ease; 
+  font-size: 0.7rem;
+  text-align: left;
 }
+  
+.dayMenuFront {
+  width: 580px;
+  height: 700px;
+  background-image: url("../images/bar2.jpg");
+  background-size: cover;       
+  background-position: center;   
+  background-repeat: no-repeat;  
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+
+.dayMenuBack {
+  width: 580px;
+  height: 700px;
+  background-image: url("../images/back2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
 
   .dayMenuFront:hover {
     transform: scale(1.05);
@@ -103,28 +119,20 @@ body {
   .dayMenuBack:hover {
     transform: scale(1.05);
     z-index: 6;
-    background-color: #eebd1c;
+    box-shadow: 0 0 10px 3px #efff86;
   }
 
-  #timerTilCoffee {
-    position: absolute;
-    top: 40%;             
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    color: black;
-    pointer-events: none;
-    z-index: 10;
-}
+
+
 #countdownWords {
   position: absolute;
-  top: 58%;              
+  top: 50%;              
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2rem;
-  font-weight: bold;
+  font-family: "Cantarell", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 1rem;  
   text-align: center;
   color: black;
   pointer-events: none;
