@@ -65,21 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateClock, 1000);
 
 //menu button
-const menuButton = document.getElementById("menuButton");
-const menuContainer = document.querySelector(".menuContainer");
-const bonsai = document.querySelector(".bonsai");
-menuButton.addEventListener("click", () => {
-    if (menuButton.innerText === "see menu") {
-        bonsai.style.opacity = "0";
-        menuContainer.classList.add("revealed");
-        menuContainer.classList.remove("hidden");
-        menuButton.innerText = "return home";
-    } else {
-        menuContainer.classList.remove("revealed");
-        menuContainer.classList.add("hidden");
-        bonsai.style.opacity = "1";
-        menuButton.innerText = "see menu";
-    }
+document.getElementById("menuButton").addEventListener("click", () => {
+    window.location.href = "../Menu/menuIndex.html";
 });
 
 

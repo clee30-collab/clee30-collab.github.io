@@ -196,14 +196,6 @@
   pointer-events: none;
 }
 
-.menuContainer.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.menuContainer.revealed {
-  opacity: 1;
-  pointer-events: auto;
-}
 
 #siteTitle {
   position: fixed;

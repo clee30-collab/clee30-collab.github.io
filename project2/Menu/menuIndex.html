@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Menus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="menuStyle.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noiseOverlay"></div>
+    <div class="aura"></div>
+    <div class="innerAura"></div>
+
+    <div class="menuInfo left">
+        cafe open 7am-4pm<br>
+        bar open 5pm-11pm
+    </div>
+
+    <div class="menuInfo right">
+        11573 Santa Monica Blvd,<br>
+        Los Angeles, CA 90025
+    </div>
+
+    <div id="liveClock" class="menuInfo liveClock"></div>
+    <div id="countdownWords" class="menuInfo countdownWords"></div>
+
+    <div id="siteTitle">
+        bonsai coffee & bar
+        <div id="titleUnderline"></div>
+    </div>
+
+    <div id="menuButton">return home</div>
+
+    <!-- Coffee -->
+    <div class="iconWrapper" id="coffeeWrapper">
+       
+        <img src="../images/coffee.png" class="centerIcon coffeeIcon">
+        <div class="menuContainer" id="coffeeMenu">
+            <div class="menuScrollWrapper">
+                <img src="../images/cafemenu.png" class="menuScrollImage">
+            </div>
+        </div>
+    </div>
+
+    <!-- Cocktail -->
+    <div class="iconWrapper" id="cocktailWrapper">
+        
+        <img src="../images/cocktail.png" class="centerIcon cocktailIcon">
+        <div class="menuContainer" id="cocktailMenu">
+            <div class="menuScrollWrapper">
+                <img src="../images/barmenu.png" class="menuScrollImage">
+            </div>
+        </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4"/>
+            <feColorMatrix type="saturate" values="0"/>
+        </filter>
+    </svg>
+
+    <script src="menuScript.js"></script>
+</body>
+</html>
