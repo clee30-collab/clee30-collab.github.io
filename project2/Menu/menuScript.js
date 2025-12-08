@@ -1,4 +1,4 @@
-// Aura follows mouse
+//aura
 document.addEventListener("mousemove", (event) => {
     const aura = document.querySelector(".aura");
     const inner = document.querySelector(".innerAura");
@@ -22,17 +22,16 @@ const cocktailMenu = document.getElementById("cocktailMenu");
 coffeeWrapper.addEventListener("click", () => {
     coffeeMenu.classList.toggle("revealed");
 });
-
 cocktailWrapper.addEventListener("click", () => {
     cocktailMenu.classList.toggle("revealed");
 });
 
-// Return home button
+//return home
 document.getElementById("menuButton").addEventListener("click", () => {
     window.location.href = "../Home/coffeeIndex.html";
 });
 
-// Status
+//cafe status
 function updateStatus() {
     const now = new Date();
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
@@ -45,7 +44,7 @@ function updateStatus() {
     document.getElementById("countdownWords").textContent = statusText;
 }
 
-// Clock
+//clock
 function updateClock() {
     const now = new Date();
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
@@ -58,7 +57,7 @@ function updateClock() {
     document.getElementById("liveClock").textContent = `${hrs}:${mins}:${secs} ${ampm} PST`;
 }
 
-// Title underline
+//title underline
 function updateTitleUnderline() {
     const now = new Date();
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
@@ -76,9 +75,10 @@ function updateTitleUnderline() {
     }
 }
 
-// Night aura
+//night aura color
 function updateAuraColors() {
     const now = new Date();
+    //const now = 20;
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
     const hours = PST.getHours();
     const aura = document.querySelector(".aura");
