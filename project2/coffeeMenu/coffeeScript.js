@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateBackground() {
         const now = new Date();
         const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
-        //const hours = PST.getHours();
-        const hours = 20;  
+        const hours = PST.getHours();
+        //const hours = 20;  
         const sky = document.querySelector(".sunSetColor");
         const sun = document.querySelector(".sunCircle");
         const isDay = hours >= 5 && hours < 17;
@@ -87,8 +87,8 @@ menuButton.addEventListener("click", () => {
     function updateTitleUnderline() {
     const now = new Date();
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
-    //const hours = PST.getHours();
-    const hours = 20;  
+    const hours = PST.getHours();
+    //const hours = 20;  
     const underline = document.getElementById("titleUnderline");
     underline.style.width = "0px";
     underline.style.transform = "translateX(0px)";
