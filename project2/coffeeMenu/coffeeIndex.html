@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
     <meta charset="utf-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <title>Day Menu</title>
     <meta content="a repository for sample code" name="description">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="../demo-accordion/style.css" rel="stylesheet">
+    
     <link href="../coffeeMenu/coffeeStyle.css" rel="stylesheet">
 
     <script src="../coffeeMenu/coffeeScript.js"></script>
   
-   
-    <body>
+</head> 
+<body>
 
-        <div class="sunSetColor"></div>
-        <div class="sunCircle"></div>
-        
-        <div class="noiseOverlay"></div>
+  <div class="sunSetColor"></div>
+  <div class="sunCircle"></div>
+  <div class="noiseOverlay"></div>
+
+  <div class="menuInfo left">
+      cafe open 7am-4pm<br>
+      bar open 5pm-11pm
+  </div>
+
+  <div class="menuInfo right">
+      11573 Santa Monica Blvd,<br>
+      Los Angeles, CA 90025
+  </div>
+
+  <div id="liveClock" class="menuInfo liveClock"></div>
+  <div id="countdownWords" class="menuInfo countdownWords"></div>
+
+  <div id="siteTitle">
+    bonsai coffee & bar
+    <div id="titleUnderline"></div>
+  </div>
+  
+
+  <img src="../images/bonsai.png" class="bonsai">
+
+  <div id="menuButton">see menu</div>
 
 
-            <div class="menuInfo left">
-              cafe open 7am-4pm<br>
-              bar open 5pm-11pm
-          </div>
-      
-
-          <div class="menuInfo right">
-              11573 Santa Monica Blvd,<br> 
-              Los Angeles, CA 90025
-          </div>
-          <div id="liveClock" class="menuInfo liveClock"></div>
-
-
-        <div class="menuContainer">
-          <div class="dayMenuFront"></div>
-          <div class="dayMenuBack">
-            
-            <div id="countdownWords">COUNTDOWN UNTIL BAR OPENS</div>
-        
-        </div>
-        
-        
+  <div class="menuContainer hidden">
+      <div class="dayMenuFront">
+          <img src="../images/cafemenu.jpg" class="menuScrollImage">
       </div>
-      
+  
+      <div class="dayMenuBack">
+          <img src="../images/barmenu.jpg" class="menuScrollImage">
+      </div>
+  </div>
 
-       
-        
-          <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <filter id="noiseFilter">
-      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
-      <feColorMatrix type="saturate" values="0"/>
-    </filter>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+      <filter id="noiseFilter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4"/>
+          <feColorMatrix type="saturate" values="0"/>
+      </filter>
   </svg>
-    </body>
-    
+
+</body>
 </html>

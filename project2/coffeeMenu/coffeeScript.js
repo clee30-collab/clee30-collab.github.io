@@ -1,13 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    //animated background
+    function updateBackground() {
+        const now = new Date();
+        const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+        //const hours = PST.getHours();
+        const hours = 20;  
+        const sky = document.querySelector(".sunSetColor");
+        const sun = document.querySelector(".sunCircle");
+        const isDay = hours >= 5 && hours < 17;
+
+        if (isDay) {
+            sky.classList.remove("nightSky");
+            sun.classList.remove("nightSun");
+        } else {
+            sky.classList.add("nightSky");
+            sun.classList.add("nightSun");
+        }
+    }
+
+    //status of cafe
     function updateStatus() {
         const now = new Date();
-        const nowEST = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
-
-        const hours = nowEST.getHours();
-
+        const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+        const hours = PST.getHours();
         let statusText = "";
-
         if (hours >= 7 && hours < 16) {
             statusText = "CAFE IS OPEN";
         } 
@@ -20,33 +37,80 @@ document.addEventListener("DOMContentLoaded", () => {
         else {
             statusText = "CAFE OPENING SOON";
         }
-
         document.getElementById("countdownWords").textContent = statusText;
     }
 
+    //clock
     function updateClock() {
         const now = new Date();
-        const nowEST = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
+        const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+        const pad = n =>
+            String(n).padStart(2, "0");
+        let hrs = PST.getHours();
+        const mins = pad(PST.getMinutes());
+        const secs = pad(PST.getSeconds());
 
-        const pad = n => String(n).padStart(2, "0");
+        const ampm = hrs >= 12 ? "PM" : "AM";
+        hrs = hrs % 12 || 12;
 
-        const hrs = pad(nowEST.getHours());
-        const mins = pad(nowEST.getMinutes());
-        const secs = pad(nowEST.getSeconds());
-
-        document.getElementById("liveClock").textContent = `${hrs}:${mins}:${secs} EST`;
+        document.getElementById("liveClock").textContent =
+            `${hrs}:${mins}:${secs} ${ampm} PST`;
     }
 
-
+    updateBackground();
     updateStatus();
     updateClock();
+    setInterval(updateBackground, 60000);
+    setInterval(updateStatus, 30000);
+    setInterval(updateClock, 1000);
 
-    setInterval(updateStatus, 30000); 
-    setInterval(updateClock, 1000);   
+//menu button
+const menuButton = document.getElementById("menuButton");
+const menuContainer = document.querySelector(".menuContainer");
+const bonsai = document.querySelector(".bonsai");
+menuButton.addEventListener("click", () => {
+    if (menuButton.innerText === "see menu") {
+        bonsai.style.opacity = "0";
+        menuContainer.classList.add("revealed");
+        menuContainer.classList.remove("hidden");
+        menuButton.innerText = "return home";
+    } else {
+        menuContainer.classList.remove("revealed");
+        menuContainer.classList.add("hidden");
+        bonsai.style.opacity = "1";
+        menuButton.innerText = "see menu";
+    }
+});
 
-    const menuBack = document.querySelector(".dayMenuBack");
-    menuBack.style.cursor = "pointer"; 
-    menuBack.addEventListener("click", () => {
-        window.location.href = "../barMenu/barIndex.html";
-    });
+
+    //title underline
+    function updateTitleUnderline() {
+    const now = new Date();
+    const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+    //const hours = PST.getHours();
+    const hours = 20;  
+    const underline = document.getElementById("titleUnderline");
+    underline.style.width = "0px";
+    underline.style.transform = "translateX(0px)";
+    const coffeeX = 62;   
+    const coffeeW = 60;    
+    const barX = 146;       
+    const barW = 28;       
+    if (hours >= 7 && hours < 16) {
+        underline.style.width = coffeeW + "px";
+        underline.style.transform = `translateX(${coffeeX}px)`;
+    }
+    else if (hours >= 17 && hours < 23) {
+        underline.style.width = barW + "px";
+        underline.style.transform = `translateX(${barX}px)`;
+    }
+    else {
+        underline.style.width = "0px";
+    }
+    }
+    updateTitleUnderline();
+    setInterval(updateTitleUnderline, 30000);
+
+
+
 });

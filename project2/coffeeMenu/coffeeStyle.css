@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:  #0a99ff;
+    background:  #dbdbdb;
     
   
     overflow: hidden;
@@ -25,35 +25,35 @@
   
   
   .sunSetColor{
-    width: 100vw;
-    height: 800px;
-    background: linear-gradient(#ff5100, #ffea07 ,#ffea07 ,#fff04f, #0a99ff);
+    width: 70vw;
+    height: 70vw;
+    background: radial-gradient(#f6d4c4, #ffea07,#7dbd9b, #bfd7e1);
     filter: blur(80px);
-    
+    border-radius: 50%;        
     position: absolute;
-    
+    box-shadow: 0 0 20px #ff4400;
     transform-origin: center;
-    animation: sunsetSky 3s forwards;
+    animation: sunsetSky 3.5s forwards;
   }
 
   .sunCircle{
-    width: 800px;
-    height: 800px;
-   
-    background: radial-gradient(circle, #ff9900, #ff3c00 90%);
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, #fbdf72 40%, #f65293);
     filter: blur(20px);
+    opacity: 40%;
     border-radius: 50%;        
-    box-shadow: 0 0 20px #ff4400;
+    box-shadow: 0 0 20px #31401c;
     position: absolute;
-    
     transform-origin: top;
-    animation: sunset 3.9s forwards;
+    animation: sunset 3.5s forwards;
   }
   
 
 .menuInfo {
-  position: absolute;    
-  color: white;
+  position: absolute;  
+   
+  color: #ff3c00;
   font-family: "Cantarell", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -61,19 +61,20 @@
   line-height: 1.2;
   pointer-events: none;  
   z-index: 10;
+  
 }
 
 
-.menuInfo.left {
-  top: 10px;             
+.menuInfo.left {           
   left: 10px;
+  top: 24px;  
   text-align: left;
 }
 
 
-.menuInfo.right {
-  top: 10px;             
+.menuInfo.right {            
   right: 10px;
+  top: 24px;  
   text-align: right;
 }
 
@@ -90,79 +91,48 @@
     z-index: 5;
   }
   .menuInfo.liveClock {
-    top: 50px;
+    bottom: 24px;  
     left: 10px;
     
     font-size: 0.7rem;
     text-align: left;
 }
 
-  
- 
-  .dayMenuFront{
+  .dayMenuFront {
     width: 580px;
     height: 700px;
-    background-image: url("../images/cafe2.jpg");
-    background-size: cover;       
-    background-position: center;   
-    background-repeat: no-repeat;  
-    transform-origin: center;
-    transition: transform 0.4s ease;
-}
+    overflow-y: scroll;   
+    overflow-x: hidden;   
+    position: relative;
+    background: none;     
+  }
+
+  .menuScrollImage {
+    width: 100%;          
+    height: auto;        
+    display: block;
+  }
+
 .dayMenuBack {
   width: 580px;
-  height: 700px;
-  background-image: url("../images/back2.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  transition: transform 0.4s ease;
+    height: 700px;
+    overflow-y: scroll;   
+    overflow-x: hidden;   
+    position: relative;
+    background: none;     
 }
 
-
-
-
-
-  
 
 
 
 #countdownWords {
-  position: absolute;
-  top: 50%;        
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  font-family: "Cantarell", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    font-size: 1rem;  
-  text-align: center;
-  color: black;
+  bottom: 24px;  
+  right: 10px;
   pointer-events: none;
   z-index: 10;
+  text-align: right;
 }
 
-
-  
-  
-.dayMenuFront:hover {
-  transform:
-   
-    scale(1.05);
-    z-index: 6;
-}
-
-.dayMenuBack:hover {
-  transform:
-   
-    scale(1.05);
-    z-index: 6;
-    box-shadow: 0 0 10px 3px #efff86;
-}
-
-  
   @keyframes sunset {
     0% {
       top: -140%;
@@ -170,7 +140,7 @@
     }
 
     100% {
-      top: 60%; 
+      top: 50%; 
       scale: 1.5;
       
     }
@@ -181,8 +151,78 @@
       opacity: 10%;
     }
     100% {
-      top: 60%; 
+      top: 50%; 
       scale: 1.5;
       
     }
 }
+
+  .nightSky {
+    background: radial-gradient(#a1a5b6, #5b72bc,#97a3ce, #cbc8d8);
+  }
+
+  .nightSun {
+    background: radial-gradient(circle, #fba96e 40%, #729837);
+    opacity: 40%;
+  }
+
+.bonsai {
+  position: absolute;
+  width: 45vw;
+  max-width: 340px;
+  bottom: 4%;
+  left: 51%;
+  transform: translateX(-50%);
+  z-index: 20;
+  opacity: 1;
+  pointer-events: none;
+}
+
+#menuButton {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  font-family: "Cantarell", sans-serif;
+  font-size: 1.2rem;
+  color: #ff3c00;
+  cursor: pointer;
+  z-index: 30;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menuContainer.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.menuContainer.revealed {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#siteTitle {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Cantarell", sans-serif;
+  font-size: 1.2rem;
+  color: #ff3c00;
+  transform: translateX(-50%);
+  z-index: 90;
+  pointer-events: none;
+  position: fixed;
+}
+
+#titleUnderline {
+  position: absolute;
+  bottom: -2px;
+  height: 1.6px;
+  background: #ff3c00;
+}
+
