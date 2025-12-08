@@ -28,7 +28,6 @@ body {
   
   .container .links {
     display: flex;
-    
     flex-direction: column;
     gap: 30px;
   }
@@ -38,7 +37,6 @@ body {
     color: black;
     font-size: 1rem;
     text-decoration: none;
-    
     transition: opacity 0.2s ease;
   }
   
