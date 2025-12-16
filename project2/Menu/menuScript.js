@@ -36,6 +36,7 @@ function updateStatus() {
     const now = new Date();
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
     const hours = PST.getHours();
+    //const hours = 20;
     let statusText = "";
     if (hours >= 7 && hours < 16) statusText = "CAFE IS OPEN";
     else if (hours >= 16 && hours < 17) statusText = "BAR OPENING SOON";
@@ -50,6 +51,7 @@ function updateClock() {
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
     const pad = (n) => String(n).padStart(2, "0");
     let hrs = PST.getHours();
+    //let hrs = 20;
     const mins = pad(PST.getMinutes());
     const secs = pad(PST.getSeconds());
     const ampm = hrs >= 12 ? "PM" : "AM";
@@ -62,6 +64,7 @@ function updateTitleUnderline() {
     const now = new Date();
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
     const hours = PST.getHours();
+    //const hours = 20;
     const underline = document.getElementById("titleUnderline");
     const coffeeX = 62, coffeeW = 60;
     const barX = 146, barW = 28;
@@ -78,9 +81,10 @@ function updateTitleUnderline() {
 //night aura color
 function updateAuraColors() {
     const now = new Date();
-    //const now = 20;
+    
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
     const hours = PST.getHours();
+    //const hours = 20;
     const aura = document.querySelector(".aura");
     const inner = document.querySelector(".innerAura");
     const isDay = hours >= 5 && hours < 17;

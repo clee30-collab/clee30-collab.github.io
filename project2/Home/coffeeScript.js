@@ -22,8 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
     //status of cafe
     function updateStatus() {
         const now = new Date();
+        
         const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
         const hours = PST.getHours();
+        //const hours = 20;
         let statusText = "";
         if (hours >= 7 && hours < 16) {
             statusText = "CAFE IS OPEN";
@@ -43,10 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
     //clock
     function updateClock() {
         const now = new Date();
+        
         const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
         const pad = n =>
             String(n).padStart(2, "0");
         let hrs = PST.getHours();
+        //let hrs = 20;
         const mins = pad(PST.getMinutes());
         const secs = pad(PST.getSeconds());
 
