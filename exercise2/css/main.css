@@ -1,9 +1,9 @@
 a {
-    color:cornflowerblue; /* Default link color */
+    color:cornflowerblue; 
   }
 
   a:visited {
-    color: palevioletred; /* Color after being visited */
+    color: palevioletred; 
   }
 
   ul {
