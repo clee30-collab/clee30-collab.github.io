@@ -48,7 +48,7 @@ body {
     color: #ff3c00;
     font-family: "Cantarell", sans-serif;
     font-weight: 400;
-    font-size: 0.65rem;
+    font-size: 1.2rem;
     line-height: 1.2;
     pointer-events: none;
     z-index: 10;
@@ -56,7 +56,7 @@ body {
 
 .menuInfo.left { left: 10px; top: 24px; text-align: left; }
 .menuInfo.right { right: 10px; top: 24px; text-align: right; }
-.menuInfo.liveClock { bottom: 24px; left: 10px; font-size: 0.7rem; text-align: left; }
+.menuInfo.liveClock { bottom: 24px; left: 10px; font-size: 1.2rem; text-align: left; }
 #countdownWords { bottom: 24px; right: 10px; text-align: right; }
 
 .nightAura {
@@ -68,17 +68,47 @@ body {
     opacity: 0.4;
 }
 
-#menuButton {
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    font-family: "Cantarell", sans-serif;
-    font-size: 1.2rem;
-    color: #ff3c00;
-    cursor: pointer;
-    z-index: 30;
-    transform: translateX(-50%);
-    user-select: none;
+.bottomNav {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 28px;
+  z-index: 30;
+}
+
+.navButton {
+  font-family: "Cantarell", sans-serif;
+  font-size: 1.2rem;
+  color: #ff3c00;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.navButton {
+  position: relative;
+  font-family: "Cantarell", sans-serif;
+  font-size: 1.2rem;
+  color: #ff3c00;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
+
+
+.navButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;          /* SAME spacing as title underline */
+  width: 0%;
+  height: 1.6px;         /* SAME thickness */
+  background: #ff3c00;
+  
+}
+.navButton:hover::after {
+  width: 100%;
 }
 
 #siteTitle {

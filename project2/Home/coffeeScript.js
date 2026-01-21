@@ -28,16 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
         //const hours = 20;
         let statusText = "";
         if (hours >= 7 && hours < 16) {
-            statusText = "CAFE IS OPEN";
+            statusText = "cafe is open";
         } 
         else if (hours >= 16 && hours < 17) {
-            statusText = "BAR OPENING SOON";
+            statusText = "bar opening soon";
         } 
         else if (hours >= 17 && hours < 23) {
-            statusText = "BAR IS OPEN";
+            statusText = "bar is open";
         } 
         else {
-            statusText = "CAFE OPENING SOON";
+            statusText = "cafe opening soon";
         }
         document.getElementById("countdownWords").textContent = statusText;
     }
@@ -54,11 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const mins = pad(PST.getMinutes());
         const secs = pad(PST.getSeconds());
 
-        const ampm = hrs >= 12 ? "PM" : "AM";
+        const ampm = hrs >= 12 ? "pm" : "am";
         hrs = hrs % 12 || 12;
 
         document.getElementById("liveClock").textContent =
-            `${hrs}:${mins}:${secs} ${ampm} PST`;
+            `${hrs}:${mins}:${secs} ${ampm} pst`;
     }
 
     updateBackground();
@@ -69,9 +69,14 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateClock, 1000);
 
 //menu button
-document.getElementById("menuButton").addEventListener("click", () => {
-    window.location.href = "../Menu/menuIndex.html";
+document.querySelectorAll(".navButton").forEach(button => {
+  button.addEventListener("click", () => {
+    window.location.href = button.dataset.link;
+  });
 });
+
+
+
 
 
     //title underline

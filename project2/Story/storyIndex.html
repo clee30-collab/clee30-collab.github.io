@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Story</title>
+  <link rel="stylesheet" href="storyStyle.css">
+</head>
+<body>
+<div class="noiseOverlay"></div>
+ <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise"
+        baseFrequency="0.8"
+        numOctaves="4"
+        stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </svg>
+    <div class="aura"></div>
+    <div class="innerAura"></div>
+
+    <div class="menuInfo left">
+        cafe open 7am-4pm<br>
+        bar open 5pm-11pm
+    </div>
+
+    <div class="menuInfo right">
+        11573 santa monica blvd,<br>
+        los angeles, ca 90025
+    </div>
+
+    <div id="liveClock" class="menuInfo liveClock"></div>
+    <div id="countdownWords" class="menuInfo countdownWords"></div>
+
+   <div id="siteTitle">
+        bonsai coffee & bar
+        <div id="titleUnderline"></div>
+    </div>
+
+
+ <div class="bottomNav">
+  <a class="navButton" href="../Home/coffeeIndex.html">home</a>
+  <a class="navButton" href="../Menu/menuIndex.html">menu</a>
+  <a class="navButton" href="../Events/eventsIndex.html">private events</a>
+  <a class="navButton" href="../Story/storyIndex.html">story</a>
+</div>
+
+
+
+  <script src="storyScript.js"></script>
+</body>
+</html>

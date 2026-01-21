@@ -1,67 +1,82 @@
-//aura
-document.addEventListener("mousemove", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ======================
+     AURA FOLLOW
+  ====================== */
+  document.addEventListener("mousemove", (event) => {
     const aura = document.querySelector(".aura");
     const inner = document.querySelector(".innerAura");
     if (!aura || !inner) return;
+
     const x = event.clientX;
     const y = event.clientY;
+
     aura.style.left = `${x}px`;
     aura.style.top = `${y}px`;
     aura.style.transform = "translate(-50%, -50%)";
+
     inner.style.left = `${x}px`;
     inner.style.top = `${y}px`;
     inner.style.transform = "translate(-50%, -50%)";
-});
-
-//menus
-const coffeeWrapper = document.getElementById("coffeeWrapper");
-const cocktailWrapper = document.getElementById("cocktailWrapper");
-const coffeeMenu = document.getElementById("coffeeMenu");
-const cocktailMenu = document.getElementById("cocktailMenu");
-
-coffeeWrapper.addEventListener("click", () => {
-    coffeeMenu.classList.toggle("revealed");
-});
-cocktailWrapper.addEventListener("click", () => {
-    cocktailMenu.classList.toggle("revealed");
-});
-
-//return home
-document.querySelectorAll(".navButton").forEach(button => {
-  button.addEventListener("click", () => {
-    window.location.href = button.dataset.link;
   });
-});
 
-//cafe status
-function updateStatus() {
+  /* ======================
+     NAVIGATION
+  ====================== */
+  document.querySelectorAll(".navButton").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const link = button.getAttribute("href") || button.dataset.link;
+      if (link) {
+        window.location.href = link;
+      }
+    });
+  });
+
+  /* ======================
+     CAFE STATUS
+  ====================== */
+  function updateStatus() {
+    const el = document.getElementById("countdownWords");
+    if (!el) return;
+
     const now = new Date();
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
     const hours = PST.getHours();
-    //const hours = 20;
+
     let statusText = "";
     if (hours >= 7 && hours < 16) statusText = "cafe is open";
     else if (hours >= 16 && hours < 17) statusText = "bar opening soon";
     else if (hours >= 17 && hours < 23) statusText = "bar is open";
     else statusText = "cafe opening soon";
-    document.getElementById("countdownWords").textContent = statusText;
-}
 
-//clock
-function updateClock() {
+    el.textContent = statusText;
+  }
+
+  /* ======================
+     CLOCK
+  ====================== */
+  function updateClock() {
+    const el = document.getElementById("liveClock");
+    if (!el) return;
+
     const now = new Date();
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
-    const pad = (n) => String(n).padStart(2, "0");
+
+    const pad = n => String(n).padStart(2, "0");
     let hrs = PST.getHours();
-    //let hrs = 20;
     const mins = pad(PST.getMinutes());
     const secs = pad(PST.getSeconds());
+
     const ampm = hrs >= 12 ? "pm" : "am";
     hrs = hrs % 12 || 12;
-    document.getElementById("liveClock").textContent = `${hrs}:${mins}:${secs} ${ampm} pst`;
-}
 
-//title underline
+    el.textContent = `${hrs}:${mins}:${secs} ${ampm} pst`;
+  }
+
+  /* ======================
+     TITLE UNDERLINE
+  ====================== */
+  //title underline
 function updateTitleUnderline() {
     const now = new Date();
     const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
@@ -80,31 +95,35 @@ function updateTitleUnderline() {
     }
 }
 
-//night aura color
-function updateAuraColors() {
-    const now = new Date();
-    
-    const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
-    const hours = PST.getHours();
-    //const hours = 20;
+  /* ======================
+     AURA DAY / NIGHT COLOR
+  ====================== */
+  function updateAuraColors() {
     const aura = document.querySelector(".aura");
     const inner = document.querySelector(".innerAura");
+    if (!aura || !inner) return;
+
+    const now = new Date();
+    const PST = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+    const hours = PST.getHours();
+
     const isDay = hours >= 5 && hours < 17;
-    if (isDay) {
-        aura.classList.remove("nightAura");
-        inner.classList.remove("nightInnerAura");
-    } else {
-        aura.classList.add("nightAura");
-        inner.classList.add("nightInnerAura");
-    }
-}
 
-updateStatus();
-updateClock();
-updateTitleUnderline();
-updateAuraColors();
+    aura.classList.toggle("nightAura", !isDay);
+    inner.classList.toggle("nightInnerAura", !isDay);
+  }
 
-setInterval(updateStatus, 30000);
-setInterval(updateClock, 1000);
-setInterval(updateTitleUnderline, 30000);
-setInterval(updateAuraColors, 60000);
+  /* ======================
+     INIT + INTERVALS
+  ====================== */
+  updateStatus();
+  updateClock();
+  updateTitleUnderline();
+  updateAuraColors();
+
+  setInterval(updateStatus, 30000);
+  setInterval(updateClock, 1000);
+  setInterval(updateTitleUnderline, 30000);
+  setInterval(updateAuraColors, 60000);
+
+});
